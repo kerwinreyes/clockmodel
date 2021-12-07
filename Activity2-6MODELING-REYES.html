@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kerwin Reyes - Analog Clock</title>
+	<style type="text/css">
+	@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+	body{
+		background: #171723;
+		font-family: 'Raleway', sans-serif;
+	}
+	.glass{
+		background: rgba( 255, 255, 255, .2 );
+		box-shadow: 0 8px 32px 0 rgba( 10, 10, 22, 0.37 );
+		backdrop-filter: blur( 4px );
+		-webkit-backdrop-filter: blur( 4px );
+		top:50%;
+		left: 50%;
+		position: absolute;
+	    margin-right: -50%;
+    	transform: translate(-50%, -50%);
+		width: 500px;
+		border-radius: 250px 250px 250px 250px;
+		height: 500px;
+		z-index: -1;
+	}
+	.glass::before{
+		content: '';
+		width: 25px;
+		height: 25px;
+		border-radius: 50%;
+		background-color: #171723;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 999;
+	}
+	.circle {
+		position: absolute;
+		background: #6568B9;  /* fallback for old browsers */
+		background: -webkit-linear-gradient(to top, #6568B9, #2F8EEA);  /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to top, #6568B9, #2F8EEA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		top:35%;
+		left:30%;
+    	transform: translate(-50%, -50%);
+		width: 400px;
+		height:400px;
+		z-index: -999;
+		border-radius: 50%
+	}
+	.triangle{position: absolute;
+		background: #6568B9;  /* fallback for old browsers */
+		background: -webkit-linear-gradient(to top, #6568B9, #2F8EEA);  /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to top, #6568B9, #2F8EEA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		top:50%;
+		left:59%;
+    	transform: translate(-50%, -50%);
+		width: 0px;
+		height:0px;
+		z-index: -999;
+		transform: rotate(35deg);
+		border-left: 150px solid transparent;
+		border-right: 150px solid transparent;
+		border-bottom: 250px solid #F7095F;
+
+	}
+	.hand{
+		position: absolute;
+		bottom: 50%;
+		left: 50%;
+		transform: translateX(-50%) rotate(0deg);
+  		transform-origin: bottom;
+ 		border-top-left-radius: 7px;
+  		border-top-right-radius: 7px;
+	}
+	.hour {
+		width: 8px;
+		height: 28%;
+		background-color: #eee;
+	}
+
+	.min {
+		width: 5px;
+		height: 38%;
+		background-color: #eee;
+	}
+
+	.sec {
+		width: 3px;
+		height: 40%;
+		background-color: #ff0000;
+	}
+	.num3{
+		position: absolute;
+		top:48%;
+		left: 95%;
+		font-size: 55px;
+    	transform: translate(-50%, -50%);
+	}
+	.num6{
+		position: absolute;
+		top: 93%;
+		left: 50%;
+		font-size: 55px;
+    	transform: translate(-50%, -50%);
+	}
+	.num9{
+		position:absolute;
+		top: 48%;
+		left:5%;
+		font-size: 55px;
+    	transform: translate(-50%, -50%);
+
+	}
+	.num12{
+		position: absolute;
+		top: 7%;
+		left: 50%;
+    	transform: translate(-50%, -50%);
+		font-size: 55px;
+	}
+	.date{
+		position: absolute;
+		top:50%;
+		left: 70%;
+    	transform: translate(-50%, -50%);
+		width: 50px;
+		height: 50px;
+		border-radius: 10px 10px 10px 10px;
+		box-shadow: inset 0px -1px 5px 0px rgba(255,255,255,.5);
+		background-color: #171723;
+	}
+	#day{
+		color: white;
+		font-size: 25px;
+		padding-top: 10px;
+		text-align: center;
+	}
+	.kerwin{
+		position: absolute;
+		top: 23%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		font-size: 25px;
+	}
+	.reyes{
+		position: absolute;
+		top: 77%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		font-size: 25px;
+	}
+	.rec{
+		background: rgba( 255, 255, 255, .2 );
+		box-shadow: 0 8px 32px 0 rgba( 10, 10, 22, 0.37 );
+		backdrop-filter: blur( 4px );
+		-webkit-backdrop-filter: blur( 4px );
+		top:80%;
+		left: 10%;
+		position: absolute;
+	    margin-right: -50%;
+    	transform: translate(-50%, -50%);
+		border-radius: 150px 150px 150px 150px;
+		width: 200px;
+		height: 50px;
+		color: white;
+		font-size:15px;
+	}
+	.pic{
+		border-radius: 250px 250px 250px 250px;
+		width: 50px;
+		height: 50px;
+		vertical-align: middle;
+		object-fit: cover;
+	}
+	</style>
+</head>
+<body>
+
+	<div class="glass">
+
+		<div class="date"><div id ="day"></div></div>
+		<div class="kerwin">Kerwin</div>
+		<div class="reyes">Reyes</div>
+		<div class="hand hour"></div>
+		<div class="hand min"></div>
+		<div class="hand sec"></div>
+		<div class="num3">3</div>
+		<div class="num6">6</div>
+		<div class="num9">9</div>
+		<div class="num12">12</div>
+
+	</div>
+	<div class="circle"></div>
+	<div class="triangle"></div>
+	<div class="rec">
+		<img class="pic" src="https://instagram.fmnl17-1.fna.fbcdn.net/v/t51.2885-19/s150x150/100687461_2616111935318914_1615523833534480384_n.jpg?_nc_ht=instagram.fmnl17-1.fna.fbcdn.net&_nc_ohc=egd_6sPvEoMAX-V3YrY&tp=1&oh=dc7cf788c5787598f1588d299e4a1f72&oe=6038017F">
+		<span class="">Reyes, Kerwin Felix</span>
+	</div>
+</body>
+<script type="text/javascript">
+// function that rotates run the clock
+function runClock() {
+	//hand for hour
+	let hour = document.querySelector('.hour');
+	// hand for minute
+	let min = document.querySelector('.min');
+	// hand for sec
+	let sec = document.querySelector('.sec');
+
+	//getting time
+	let getTime = new Date();
+	let getHours = getTime.getHours();
+	let getMins = getTime.getMinutes();
+	let getSecs = getTime.getSeconds();
+	let secsFraction = getSecs / 60;
+	let minsFraction = (getMins) / 60;
+	let hoursFraction = (minsFraction + getHours) / 12;
+
+	//rotate the hands
+	let secsRotate = secsFraction * 360;
+	let minsRotate = minsFraction * 360;
+	let hoursRotate = hoursFraction * 360;
+
+	//transform each div
+	sec.style.transform = `rotate(${secsRotate}deg)`;
+	min.style.transform = `rotate(${minsRotate}deg)`;
+	hour.style.transform = `rotate(${hoursRotate}deg)`;
+	document.getElementById('day').innerHTML = getTime.getDate();
+}
+
+//run for every 1 seconds
+setInterval(runClock, 1000);
+</script>
+</html>
